@@ -16,7 +16,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors({ maxAge: 86400, origin: "*" }));
+app.use(cors({ maxAge: 86400, origin: "https://todo-app-server-client.vercel.app" }));
 
 const todoItemRoute = require("./routes/todoItems");
 
