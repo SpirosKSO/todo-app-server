@@ -104,7 +104,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
     let searchTodo = [...todos];
     searchTodo = searchTodo.filter((todo) => {
       let newTodo = todo.title.toLowerCase();
-      return newTodo.includes(searchInput.toLowerCase();
+      return newTodo.includes(searchInput.toLowerCase());
     });
     setfilteredTodos([...searchTodo]);
   }, [todos, searchInput]);
