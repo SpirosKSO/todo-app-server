@@ -6,11 +6,11 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = 5000 || MONGO_URI;
 
-const connectionString =
+const MONGO_URI =
   "mongodb+srv://spiros111:abcd1234@cluster0.xxgxk37.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
-  .connect(connectionString)
+  .connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Couldn't connect to MongoDB", err));
 
