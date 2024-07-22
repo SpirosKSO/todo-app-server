@@ -75,7 +75,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const deleteTodos = (id) => {
     axios
-      .delete(`todo-app-server-five.vercel.app/${id}`)
+      .delete(`todo-app-server-five.vercel.app/todos/${id}`)
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => prev.filter((todo) => todo._id !== id));
@@ -86,7 +86,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const editTodos = async (id, newName) => {
     await axios
-      .put(`todo-app-server-five.vercel.app/${id}`, { title: newName })
+      .put(`todo-app-server-five.vercel.app/todos/${id}`, { title: newName })
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => {
