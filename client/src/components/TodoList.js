@@ -86,7 +86,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const editTodos = async (id, newName) => {
     await axios
-      .put(https://`todo-app-server-five.vercel.app/todos/${id}`, { title: newName })
+      .put(`https://todo-app-server-five.vercel.app/todos/${id}`, { title: newName })
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => {
