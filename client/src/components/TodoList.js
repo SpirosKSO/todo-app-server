@@ -103,8 +103,8 @@ const TodoList = ({ editedInput, setEditedInput }) => {
   useEffect(() => {
     let searchTodo = [...todos];
     searchTodo = searchTodo.filter((todo) => {
-      let newTodo = todo.title;
-      return newTodo.includes(searchInput);
+      let newTodo = todo.title.toLowerCase();
+      return newTodo.includes(searchInput.toLowerCase();
     });
     setfilteredTodos([...searchTodo]);
   }, [todos, searchInput]);
