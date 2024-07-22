@@ -16,7 +16,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors({ origin: "https://todo-app-server-client.vercel.app",methods:["GET, POST"], credentials: true }));
+app.use(cors({ origin: ["https://todo-app-server-client.vercel.app"],methods:["GET, POST"], credentials: true }));
 
 const todoItemRoute = require("./routes/todoItems");
 
