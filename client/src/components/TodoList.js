@@ -15,7 +15,7 @@ const FILTERED_TODOS = {
 };
 
 const FILTER_TODOS = Object.keys(FILTERED_TODOS);
-
+axios.defaults.withCredentials = true
 const TodoList = ({ editedInput, setEditedInput }) => {
   const [todos, setTodos] = useState([]);
   const [searchInput, setSearchInput] = useState("");
