@@ -26,7 +26,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
   useEffect(() => {
     const getAllTodos = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/todos");
+        const res = await axios.get("todo-app-server-five.vercel.app/todos");
         setTodos(res.data);
       } catch (err) {
         console.log(err);
@@ -40,7 +40,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/todos", {
+      .post("todo-app-server-five.vercel.app/todos", {
         title: text,
         isCompleted: false,
       })
@@ -57,7 +57,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
     const currentTodo = todos.find((todo) => todo._id === id);
 
     axios
-      .put(`http://localhost:5000/todos/${id}`, {
+      .put(`todo-app-server-five.vercel.app/todos/${id}`, {
         isCompleted: !currentTodo.isCompleted,
       })
       .then((res) => {
@@ -75,7 +75,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const deleteTodos = (id) => {
     axios
-      .delete(`http://localhost:5000/todos/${id}`)
+      .delete(`todo-app-server-five.vercel.app/${id}`)
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => prev.filter((todo) => todo._id !== id));
@@ -86,7 +86,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const editTodos = async (id, newName) => {
     await axios
-      .put(`http://localhost:5000/todos/${id}`, { title: newName })
+      .put(`todo-app-server-five.vercel.app/${id}`, { title: newName })
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => {
