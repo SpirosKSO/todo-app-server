@@ -15,8 +15,8 @@ const FILTERED_TODOS = {
 };
 
 const FILTER_TODOS = Object.keys(FILTERED_TODOS);
-axios.defaults.withCredentials = true
-const TodoList = ({ editedInput, setEditedInput }) => {
+
+const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [text, setText] = useState("");
@@ -26,7 +26,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
   useEffect(() => {
     const getAllTodos = async () => {
       try {
-        const res = await axios.get("https://todo-app-server-five.vercel.app/todos");
+        const res = await axios.get("http://localhost:5000/todos");
         setTodos(res.data);
       } catch (err) {
         console.log(err);
@@ -40,7 +40,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
     e.preventDefault();
 
     axios
-      .post("https://todo-app-server-five.vercel.app/todos", {
+      .post("http://localhost:5000/todos", {
         title: text,
         isCompleted: false,
       })
@@ -57,7 +57,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
     const currentTodo = todos.find((todo) => todo._id === id);
 
     axios
-      .put(`https://todo-app-server-five.vercel.app/todos/${id}`, {
+      .put(`http://localhost:5000/todos/${id}`, {
         isCompleted: !currentTodo.isCompleted,
       })
       .then((res) => {
@@ -75,7 +75,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const deleteTodos = (id) => {
     axios
-      .delete(`https://todo-app-server-five.vercel.app/todos/${id}`)
+      .delete(`http://localhost:5000/todos/${id}`)
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => prev.filter((todo) => todo._id !== id));
@@ -86,7 +86,7 @@ const TodoList = ({ editedInput, setEditedInput }) => {
 
   const editTodos = async (id, newName) => {
     await axios
-      .put(`https://todo-app-server-five.vercel.app/todos/${id}`, { title: newName })
+      .put(`http://localhost:5000/todos/${id}`, { title: newName })
       .then((res) => {
         if (res.data && res.status === 200) {
           setTodos((prev) => {
