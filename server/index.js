@@ -22,6 +22,10 @@ const todoItemRoute = require("./routes/todoItems");
 
 app.use("/", todoItemRoute);
 
+app.get("/", (req, res) =>{
+res.send("Server is Running")
+})
+
 app.listen(PORT, () =>
   console.log(`Server is running on http://localhost:${PORT}`)
 );
