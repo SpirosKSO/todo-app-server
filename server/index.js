@@ -16,11 +16,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*"
-  })
-);
+app.use(cors());
 
 const todoItemRoute = require("./routes/todoItems");
 
