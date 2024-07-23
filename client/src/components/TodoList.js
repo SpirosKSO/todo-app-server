@@ -38,7 +38,9 @@ const TodoList = () => {
 
   const createTodo = (e) => {
     e.preventDefault();
-
+    if(text === ""){
+     return; 
+    }
     axios
       .post("https://todo-app-server-five.vercel.app/todos", {
         title: text,
